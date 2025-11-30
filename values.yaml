@@ -8,6 +8,39 @@ ui:
   replicas: 2
   image:
     name: todo-ui
-    tag: v4
+    tag: v1
   port: 80
   servicePort: 80
+
+get-tasks:
+  ingress: 
+    host: get-tasks-api.applicationtesting.online
+  replicas: 2
+  image:
+    name: todo-get-tasks-api
+    tag: v1
+  port: 8000
+  servicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:todoapp-sql-server01.database.windows.net,1433;Database=sql-database-todoapp;Uid=devdbprivilgeuser;Pwd=Adminuser@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+add-task:
+  ingress:
+    host: add-tasks-api.applicationtesting.online
+  replicas: 2
+  image:
+    name: todo-add-tasks-api
+    tag: v1
+  port: 8000
+  servicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:todoapp-sql-server01.database.windows.net,1433;Database=sql-database-todoapp;Uid=devdbprivilgeuser;Pwd=Adminuser@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+delete-task:
+  ingress: 
+    host: delete-tasks-api.applicationtesting.online
+  replicas: 2
+  image: 
+    name: todo-delete-tasks-api
+    tag: v1
+  port: 8000
+  servicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:todoapp-sql-server01.database.windows.net,1433;Database=sql-database-todoapp;Uid=devdbprivilgeuser;Pwd=Adminuser@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"

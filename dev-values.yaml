@@ -1,0 +1,46 @@
+common:
+  containerRegistryURL: todoappacr001.azurecr.io
+  ingressClassName: azure-application-gateway
+
+ui:
+  ingress: 
+    host: dev-ui.applicationtesting.online
+  replicas: 2
+  image:
+    name: todo-ui
+    tag: v1
+  port: 80
+  servicePort: 80
+
+getTasks:
+  ingress: 
+    host: dev-get-tasks-api.applicationtesting.online
+  replicas: 2
+  image:
+    name: todo-get-tasks-api
+    tag: v1
+  port: 8000
+  servicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:todoapp-sql-server01.database.windows.net,1433;Database=sql-database-todoapp;Uid=devdbprivilgeuser;Pwd=Adminuser@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+addTask:
+  ingress:
+    host: dev-add-tasks-api.applicationtesting.online
+  replicas: 2
+  image:
+    name: todo-add-tasks-api
+    tag: v1
+  port: 8000
+  servicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:todoapp-sql-server01.database.windows.net,1433;Database=sql-database-todoapp;Uid=devdbprivilgeuser;Pwd=Adminuser@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+deleteTask:
+  ingress: 
+    host: dev-delete-tasks-api.applicationtesting.online
+  replicas: 2
+  image: 
+    name: todo-delete-tasks-api
+    tag: v1
+  port: 8000
+  servicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:todoapp-sql-server01.database.windows.net,1433;Database=sql-database-todoapp;Uid=devdbprivilgeuser;Pwd=Adminuser@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"

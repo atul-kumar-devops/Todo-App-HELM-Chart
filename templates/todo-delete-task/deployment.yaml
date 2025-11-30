@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "{{ .Relase.Name }}-todo-delete-tasks-api"
 spec:
-  replicas: {{ .Values.delete-task.replicas }}
+  replicas: {{ .Values.deleteTask.replicas }}
   selector:
     matchLabels:
       app: "{{ .Release.Name }}-todo-delete-tasks-api"
@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: "{{ .Release.Name }}-todo-delete-tasks-api"
-        image: "{{ .Values.common.containerResgistryURL }}/{{ .Values.delete-task.image.name }}:{{ .Values.delete-task.image.tag }}"
+        image: "{{ .Values.common.containerResgistryURL }}/{{ .Values.deleteTask.image.name }}:{{ .Values.deleteTask.image.tag }}"
         ports:
-        - containerPort: {{ .Values.delete-task.port }}
+        - containerPort: {{ .Values.deleteTask.port }}
         env:
           - name: CONNECTION_STRING
-            value: {{ .Values.delete-task.connectionString }}
+            value: {{ .Values.deleteTask.connectionString }}

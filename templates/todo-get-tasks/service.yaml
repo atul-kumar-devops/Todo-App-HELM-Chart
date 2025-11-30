@@ -7,5 +7,5 @@ spec:
   selector:
     app: "{{ .Release.Name }}-todo-get-tasks-api"
   ports:
-    - port: {{ .Values.get-tasks.port }}
-      targetPort: {{ .Values.get-tasks.servicePort }}
+    - port: {{ .Values.getTasks.port }}
+      targetPort: {{ .Values.getTasks.servicePort }}

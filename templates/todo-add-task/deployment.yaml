@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: "{{ .Release.Name }}-todo-add-tasks-api"
-        image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.add-task.image.name }}:{{ .Values.add-task.image.tag }}"
+        image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.addTask.image.name }}:{{ .Values.addTask.image.tag }}"
         ports:
-        - containerPort: {{ .Values.add-task.port }}
+        - containerPort: {{ .Values.addTask.port }}
         env:
           - name: CONNECTION_STRING
-            value: "{{ .Values.add-task.connectionString }}"
+            value: "{{ .Values.addTask.connectionString }}"

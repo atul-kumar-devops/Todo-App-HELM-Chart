@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "{{ .Release.Name }}-todo-get-tasks-api"
 spec:
-  replicas: {{ .Values.get-tasks.replicas }}
+  replicas: {{ .Values.getTasks.replicas }}
   selector:
     matchLabels:
       app: "{{ .Release.Name }}-todo-get-tasks-api"
@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: "{{ .Release.Name }}-todo-get-tasks-api"
-        image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.get-tasks.image.name }}:{{ .Values.get-tasks.image.tag }}"
+        image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.getTasks.image.name }}:{{ .Values.getTasks.image.tag }}"
         ports:
-        - containerPort: {{ .Values.get-tasks.port }}
+        - containerPort: {{ .Values.getTasks.port }}
         env:
           - name: CONNECTION_STRING
-            value: {{ .Values.get-tasks.connectionString }}
+            value: {{ .Values.getTasks.connectionString }}
 
 

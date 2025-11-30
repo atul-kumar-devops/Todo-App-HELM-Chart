@@ -19,6 +19,6 @@ spec:
         - containerPort: {{ .Values.getTasks.port }}
         env:
           - name: CONNECTION_STRING
-            value: {{ .Values.getTasks.connectionString }}
+            value: "{{ .Values.getTasks.connectionString }}"
 
 

@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: "{{ .Relase.Name }}-todo-add-task-api-ingress"
+  name: "{{ .Release.Name }}-todo-add-task-api-ingress"
 spec:
-  ingressClassName: {{ .Values.commmon-ingressClassName}}
+  ingressClassName: {{ .Values.common.ingressClassName }}
   rules:
     - host: {{ .Values.addTask.ingress.host }}
       http:
@@ -12,6 +12,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: "{{.Release.Name }}-todo-add-tasks-api-service"
+                name: "{{ .Release.Name }}-todo-add-tasks-api-service"
                 port:
                   number: {{ .Values.addTask.servicePort }}

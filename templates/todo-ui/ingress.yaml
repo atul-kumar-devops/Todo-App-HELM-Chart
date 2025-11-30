@@ -14,4 +14,4 @@ spec:
               service:
                 name: "{{ .Release.Name }}-todo-ui-service"
                 port:
-                  number: {{ .Values.ui.port }}
+                  number: {{ .Values.ui.servicePort }}

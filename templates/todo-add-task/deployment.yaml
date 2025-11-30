@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "{{ .Release.Name }}-todo-add-tasks-api"
 spec:
-  replicas: 2
+  replicas: {{ .Values.addTask.replicas }}
   selector:
     matchLabels:
       app: "{{ .Release.Name }}-todo-add-tasks-api"
